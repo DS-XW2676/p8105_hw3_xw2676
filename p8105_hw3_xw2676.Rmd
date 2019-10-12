@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 theme_set(theme_bw())
 ```
-There are `r nrow(instacart)` observations and `r ncol(instacart)` variables in instacart dataset. The key variables are `r colnames(instacart[4])`，`r colnames(instacart[10])`, `r colnames(instacart[11])`, `r colnames(instacart[14])`, `r colnames(instacart[15])`. For example, there is a customer whose id is 112108 bought an order whose id is 1 in 10:00 am Thursday. Among these products, such as yogurt or cheese, there are 4 products that he have bought before. And this order is his fourth order. It has been 9 days ever since his prior order. 
+There are `r nrow(instacart)` observations and `r ncol(instacart)` variables in instacart dataset. The key variables are `r colnames(instacart[1])`，`r colnames(instacart[2])`, `r colnames(instacart[8])`, `r colnames(instacart[9])`, `r colnames(instacart[11])`, `r colnames(instacart[12])`,`r colnames(instacart[13])`,`r colnames(instacart[14])`,`r colnames(instacart[15])`. For example, there is a customer whose id is 112108 bought an order whose id is 1 in 10:00 am Thursday. Among these products, such as yogurt or cheese, there are 4 products that he have bought before. And this order is his fourth order. It has been 9 days ever since his prior order. 
 
 #### 1）
 ```{r}
@@ -252,7 +252,7 @@ From the plot above, we can see that in the first two weeks, the total activity 
 accel_data %>% 
   group_by(day_order) %>% 
   ggplot(aes(x = time, y = activity_counts, color = day)) +
-  geom_line() +
+  geom_line() + viridis::scale_color_viridis(discrete = TRUE)+
 labs(
        x = "time",
        y = "activity counts",
