@@ -228,7 +228,8 @@ total_activity = group_by(accel_data, day_order, day,week) %>%
   summarise(
     total_activity = sum(activity_counts)
   ) 
-total_activity 
+total_activity_table = knitr::kable(total_activity, format = "html", caption = "Total acitvity of each day")
+total_activity_table
 
 ## generate a plot about the total activity of every day in every week to see the trend.
 total_activity_plot = ggplot(total_activity, aes(x = day_order, y = total_activity)) +
@@ -238,10 +239,9 @@ labs(
        title = "Plot 3  Total activity of each day "
        )  + 
 scale_x_continuous(
-    breaks = c(1,8, 15, 22,29), 
+    breaks = c(1, 8, 15, 22,29), 
     labels = c("1", "8", "15", "22", "29"),
-    limits = c(1, 35)) + 
-theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    limits = c(1, 35))
 total_activity_plot
 ```
 
@@ -251,7 +251,7 @@ From the plot above, we can see that in the first two weeks, the total activity 
 ```{r}
 accel_data %>% 
   group_by(day_order) %>% 
-  ggplot(aes(x = time, y = activity_counts, color = day_order)) +
+  ggplot(aes(x = time, y = activity_counts, color = day)) +
   geom_line() +
 labs(
        x = "time",
@@ -261,7 +261,7 @@ labs(
 
 ```
 
-From the plot above, we can see that the number of activity is large during 6:00am to 22:00pm, especially large at around 10:00am and 21:00pm, which indicates that he had more activities at these times.
+From the plot above, we can see that the activity counts is large during 6:00am to 22:00pm, especially large at around 10:00am and 21:00pm in all days of the week, which indicates that he had more activities at these times. What is more, we can see that Monday, Tuesday are more flatter, and Sunday, Saturday and Sunday are more fluctuate. 
 
 
 
