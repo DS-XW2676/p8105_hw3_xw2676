@@ -25,7 +25,7 @@ scale_fill_discrete = scale_fill_viridis_d
 library(p8105.datasets)
 data("instacart") 
 instacart %>% 
-  head(8) %>% 
+  head(3) %>% 
   knitr::kable(format = "html", caption = "Table 1 An example from the dataset")
 ```
 
@@ -37,7 +37,7 @@ aisle_data_ordered = group_by(instacart,aisle,aisle_id) %>% ## split data into d
   summarise(n = n()) %>% ## generate a dataset which comprises of every aisle and number of items ordered from it.
   arrange(-n) 
 max_aisle = head(aisle_data_ordered,1)
-knitr::kable(aisle_data_ordered, format = "html",caption = "Table 2 Numbers of items bought from each aisle")
+knitr::kable(max_aisle, format = "html",caption = "Table 2 Aisle most items bought from")
 ```
 
 So there are `r nrow(aisle_data_ordered)` aisles, and items are ordered mostly from "`r aisle_data_ordered[1,1]`" aisle. The reason for this may be that fresh vegetables are must for every person, and people must buy much of them every day. 
