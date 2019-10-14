@@ -214,7 +214,7 @@ ggplot(total_activity, aes(x = day_order, y = total_activity, color = day)) +
   geom_line(alpha = .5) +
 labs(
        x    = "day order",
-       title = "Plot 3  Total activity of each day "
+       title = "Plot 4  Total activity of each day "
        )  + 
 scale_x_continuous(
     breaks = c(1, 8, 15, 22,29), 
@@ -233,7 +233,7 @@ accel_data %>%
 labs(
        x = "time",
        y = "activity counts",
-       title = "Plot 3 Every day activity counts"
+       title = "Plot 5 Every day activity counts"
        )
 
 ```
